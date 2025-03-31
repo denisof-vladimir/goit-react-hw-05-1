@@ -1,0 +1,29 @@
+.list {
+    /* display: flex;
+    flex-wrap: wrap; */
+    justify-content: space-between;
+    gap: 10px;
+    padding-left: 0;
+  }
+  
+  .iteams {
+    white-space: nowrap;
+    list-style-type: none;
+    padding: 6px 14px;
+    /* border: 1px solid rgb(50, 50, 50);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5); */
+  }
+  
+  .iteam {
+    text-decoration: none;
+    list-style: none;
+    color: rgb(50, 50, 50);
+  
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .iteam:hover {
+    color: black;
+  }
