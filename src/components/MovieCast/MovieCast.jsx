@@ -47,7 +47,7 @@ return (
                         <p className={css.name}> {castAkting.name} </p>
                         <img
                              src={`https://image.tmdb.org/t/p/w500/${castAkting.profile_path}`}
-                             width={150}
+                             width={100}
                              alt={castAkting.name}
                         />
                         <p className={css.name}> Character - {castAkting.character} </p>

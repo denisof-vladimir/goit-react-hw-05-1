@@ -11,7 +11,6 @@
         const { moviesId} = useParams();
         const [reviews, setReviews] = useState(null);
         const [isLoading, setIsLoading] = useState(false);
-       
     
       useEffect(() => {
         const fetchReviewsFilms = async () => {
