@@ -14,23 +14,6 @@ const options = {
         Authorization: ApiReadAccessToken               
     }
     };
-
-// async function FetchInfo(searchPhoto, currentPage) {
-//     try {
-        
-
-//          const response = await axios.get(url,options);
-    
-//         return response.data || {"total_pages": 0, "results": []};
-//         } 
-//     catch (error) {
-//         toast.error("Щось не те.. Спробуй ще раз!!");
-//       return [];
-//      }
-//   }
-
-// export default FetchInfo;
-
   
   export const fetchTranding = async (page) => {
     const resp = await axios(`trending/movie/week?page=${page}`, options);
@@ -47,7 +30,7 @@ const options = {
     return resp.data;
   };
   
-  export const fetchMovieRewiews = async (moviesId) => {
+  export const fetchMovieReviews = async (moviesId) => {
     const resp = await axios(`movie/${moviesId}/reviews`, options);
     return resp.data;
   };

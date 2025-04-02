@@ -10,7 +10,7 @@ export default function Navigation() {
   return (
     <header className={css.header}>
       <nav className={css.nav}>
-        <ul className={css.list}>
+        <ul className={css.navigationBloc}>
           <li>
             <NavLink to="/" className={getLinkStyles}>
               Home

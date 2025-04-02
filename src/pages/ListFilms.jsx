@@ -1,10 +1,11 @@
-import { useState, useEffect,  useContext, CSSProperties  } from 'react';
-import { Link } from 'react-router';
-import css from "./ListFilms.module.css";
-     
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import css from "./ListFilms.module.css"; 
 
 export default function ListFilms({films, page}) {
     const numberLast = 20*(page-1);
+    const location = useLocation();
+    const backLinkRef = useRef(location.state);    
     return (
         <ul className={css.list}>
              {films.map((film, index) => (
