@@ -15,7 +15,7 @@ const options = {
     }
     };
   
-  export const fetchTranding = async (page) => {
+  export const fetchTrending = async (page) => {
     const resp = await axios(`trending/movie/week?page=${page}`, options);
     return resp.data;
   };

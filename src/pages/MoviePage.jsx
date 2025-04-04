@@ -4,12 +4,12 @@ import { useDebounce } from 'use-debounce';
 import * as Yup from 'yup';
 import toast, { Toaster } from "react-hot-toast";
 import { fetchSearchMovie  }  from "../components/FetchInfo/FetchInfo";
-import  ListFilms from "./ListFilms";
+import  MovieList from "./MovieList";
 import css from "./MoviesPage.module.css";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
   
-export default function MoviesPage() {
+export default function MoviePage() {
     const [error, setError] = useState(false);
     const [films, setFilms] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -83,14 +83,14 @@ function LoadLessBtn({predBtn}) {
       }
     };
     fetchSearchFilms();
-    }, [ page, debouncedQuery]);
+    }, [ page, debouncedQuery, searchParams]);
 
     return (
       <>  
           <input type="text" value={query} onChange={changeSearchText} />
           {isLoading && <Loader />}
           {error && <ErrorMessage />} 
-          {films.length > 0 && <ListFilms films={films} page={page} />} 
+          {films.length > 0 && <MovieList films={films} page={page} />} 
           {isLoadMore && <LoadMoreBtn nextBtn={nextBtn} />}
           {isLoadLess && <LoadLessBtn predBtn={predBtn}/>}
         </>

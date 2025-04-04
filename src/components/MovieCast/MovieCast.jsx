@@ -12,8 +12,7 @@ export default function MovieCast() {
     const [cast, setCast] = useState(null);
     const [isLoading, setIsLoading] = useState(false);     
 
-  useEffect(() => {
-    const fetchCreditsFilms = async () => {
+  const fetchCreditsFilms = async () => {
       try {
         setIsLoading(true);
         setError(false);
@@ -29,16 +28,15 @@ export default function MovieCast() {
         setIsLoading(false);
       }
     };
-    if ( ! moviesId){return;};
 
+  useEffect(() => {
     fetchCreditsFilms();
-    
-}, [moviesId]);
+    }, [moviesId]);
 
 return (
   <div>
     {isLoading && <b>Loading...</b>}
-    {error && <b>Error...</b>}
+     {error && <ErrorMessage />} 
     {cast && (
         <ul className={css.movieCast}>
              {cast.map((castAkting) => (

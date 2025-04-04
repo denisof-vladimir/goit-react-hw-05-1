@@ -37,7 +37,7 @@
 return (
     <div>
       {isLoading && <b>Loading...</b>}
-      {error && <b>Error...</b>}
+      {error && <ErrorMessage />} 
       { ! reviews && <p>  Not have reviews </p>}
       {reviews && (
         <ul className={css.reviews}>
