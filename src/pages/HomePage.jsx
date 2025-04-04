@@ -1,7 +1,7 @@
 import { useState, useEffect,  useContext, CSSProperties  } from 'react';
 import toast, { Toaster } from "react-hot-toast";
-import { fetchTranding }  from "../components/FetchInfo/FetchInfo";
-import  ListFilms from "./ListFilms";
+import { fetchTrending }  from "../components/FetchInfo/FetchInfo";
+import  MovieList from "./MovieList";
 import css from "./HomePage.module.css";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
@@ -48,7 +48,7 @@ function LoadLessBtn({predBtn}) {
       try {
         setIsLoading(true);
         setError(false);
-        const images = await fetchTranding ( page);
+        const images = await fetchTrending ( page);
         if (images.results.length === 0) {
           toast.error("No images found!");
           return;
@@ -73,9 +73,9 @@ function LoadLessBtn({predBtn}) {
        
           <div>
             {isLoading && <Loader />}
-            {error && <ErrorMessage />} 
+            {error && <ErrorMessage error={"Error! Please, reload page!"}/>} 
             <h2> Trending today</h2>
-            {films.length > 0 && <ListFilms films={films} page={page} />} 
+            {films.length > 0 && <MovieList films={films} page={page} />} 
             {isLoadMore && <LoadMoreBtn nextBtn={nextBtn} />}
             {isLoadLess && <LoadLessBtn predBtn={predBtn}/>}
           </div>  

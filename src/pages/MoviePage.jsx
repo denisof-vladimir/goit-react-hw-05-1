@@ -19,7 +19,7 @@ export default function MoviePage() {
     // const [query, setQuery] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('query') ?? '';
-    const [debouncedQuery] = useDebounce(query, 2000); 
+    const [debouncedQuery] = useDebounce(query, 1000); 
 
     const changeSearchText = (event) => {
       setFilms([]);
@@ -82,14 +82,14 @@ function LoadLessBtn({predBtn}) {
         setIsLoading(false);
       }
     };
-    fetchSearchFilms();
+    if (debouncedQuery.length >0) {fetchSearchFilms();};
     }, [ page, debouncedQuery, searchParams]);
 
     return (
       <>  
           <input type="text" value={query} onChange={changeSearchText} />
           {isLoading && <Loader />}
-          {error && <ErrorMessage />} 
+          {error && <ErrorMessage  error={"Error! Please, reload page or repeat search."}/>} 
           {films.length > 0 && <MovieList films={films} page={page} />} 
           {isLoadMore && <LoadMoreBtn nextBtn={nextBtn} />}
           {isLoadLess && <LoadLessBtn predBtn={predBtn}/>}

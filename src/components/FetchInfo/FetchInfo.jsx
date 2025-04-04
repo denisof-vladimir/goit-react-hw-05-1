@@ -36,11 +36,12 @@ const options = {
   };
   
   export const fetchSearchMovie = async (query, page) => {
-    const resp = await axios("search/movie", {
+    const resp = await axios(`search/movie?query=${query}&page=${page}`, {
       ...options,
       params: { query },
+     
     });
     return resp.data;
   };
 
-
+  

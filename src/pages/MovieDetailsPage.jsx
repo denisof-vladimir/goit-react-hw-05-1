@@ -14,7 +14,6 @@ export default function MovieDetailsPage() {
   const [film, setFilm] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  const urlImage = "https://image.tmdb.org/t/p/w500/"+film.poster_path;
   const backLinkRef = useRef(location.state);    
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function MovieDetailsPage() {
 return (
   <div>
     {isLoading && <b>Loading...</b>}
-    {error && <b>Error...</b>}
+    {error && <ErrorMessage error={"Error! Please, reload page!"}/>} 
     {film && (
       <>
       <Link to={backLinkRef.current}>Go back</Link>

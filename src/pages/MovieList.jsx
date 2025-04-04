@@ -1,8 +1,8 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
-import css from "./ListFilms.module.css"; 
+import css from "./MovieList.module.css"; 
 
-export default function ListFilms({films, page}) {
+export default function MovieList({films, page}) {
     const numberLast = 20*(page-1);
     const location = useLocation();
     const backLinkRef = useRef(location.state);    

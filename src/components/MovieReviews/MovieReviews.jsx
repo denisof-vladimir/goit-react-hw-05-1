@@ -18,6 +18,7 @@
             setIsLoading(true);
             setError(false);
             const data = await fetchMovieReviews ( moviesId);
+            
             setReviews(data.results);
             }
         catch {
@@ -28,7 +29,7 @@
             setIsLoading(false);
           }
         };
-        if ( ! moviesId){return;};
+      
     
         fetchReviewsFilms();
         
@@ -37,9 +38,9 @@
 return (
     <div>
       {isLoading && <b>Loading...</b>}
-      {error && <ErrorMessage />} 
-      { ! reviews && <p>  Not have reviews </p>}
-      {reviews && (
+      {error && <ErrorMessage error={"Reviews don't search!"}/>} 
+      {/* { reviews.length ==0 && <p>  Not have reviews </p>} */}
+      {reviews  && (
         <ul className={css.reviews}>
              {reviews.map((review, index) => (
                 <li className={css.reviewsLi} key={review.id}>

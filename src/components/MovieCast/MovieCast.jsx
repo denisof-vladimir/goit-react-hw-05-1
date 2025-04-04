@@ -36,7 +36,7 @@ export default function MovieCast() {
 return (
   <div>
     {isLoading && <b>Loading...</b>}
-     {error && <ErrorMessage />} 
+    {error && <ErrorMessage error={"Don't search cast! Repeat search.."}/>} 
     {cast && (
         <ul className={css.movieCast}>
              {cast.map((castAkting) => (
